@@ -9,6 +9,7 @@ import { TopNavigation } from '@/components/navigation/TopNavigation';
 import { MiniMap } from '@/components/navigation/MiniMap';
 import { GuidedTour } from '@/components/navigation/GuidedTour';
 import { ProfilePanel } from '@/components/ui/ProfilePanel';
+import { SettingsPanel } from '@/components/ui/SettingsPanel';
 
 // Dynamic import with SSR disabled to guarantee clean client-side WebGL mounting
 const CityScene = dynamic(() => import('@/components/city/CityScene'), {
@@ -52,6 +53,9 @@ export default function Home() {
 
       {/* 9. Dedicated Project Details Modal */}
       <ProjectModal />
+
+      {/* 10. World Settings & Accessibility Panel */}
+      <SettingsPanel />
     </main>
   );
 }

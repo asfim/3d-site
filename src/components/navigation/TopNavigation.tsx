@@ -21,7 +21,8 @@ import {
   Send,
   Home,
   ShieldAlert,
-  PanelBottom
+  PanelBottom,
+  Settings
 } from 'lucide-react';
 
 const navIcons: Record<string, any> = {
@@ -48,6 +49,8 @@ export function TopNavigation() {
   const toggleMiniMap = useGameStore((s) => s.toggleMiniMap);
   const isProfilePanelOpen = useGameStore((s) => s.isProfilePanelOpen);
   const toggleProfilePanel = useGameStore((s) => s.toggleProfilePanel);
+  const isSettingsOpen = useGameStore((s) => s.isSettingsOpen);
+  const toggleSettings = useGameStore((s) => s.toggleSettings);
 
   const handleNavClick = (id: BuildingId | 'home') => {
     setMobileMenuOpen(false);
@@ -186,6 +189,19 @@ export function TopNavigation() {
           }`}
         >
           <MapPin className="h-4 w-4" />
+        </button>
+
+        {/* Settings Toggle Button */}
+        <button
+          onClick={toggleSettings}
+          title="Settings & Accessibility"
+          className={`flex h-9 w-9 items-center justify-center rounded-xl border backdrop-blur-md transition-all shadow-xl ${
+            isSettingsOpen
+              ? 'border-cyan-400 bg-cyan-950/80 text-cyan-300'
+              : 'border-slate-800 bg-slate-950/85 text-slate-400 hover:text-white hover:bg-slate-900'
+          }`}
+        >
+          <Settings className="h-4 w-4" />
         </button>
 
         {/* Mobile Hamburger Menu Toggle */}
